@@ -1,0 +1,50 @@
+logging:
+  file:
+    name: logs/logfile.log
+  level:
+    root: ERROR
+    org:
+      springframework:
+       amqp: debug
+    com: debug
+spring:
+  application:
+    name: consumer
+  datasource:
+    url:   jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+  rabbitmq:
+    listener:
+      simple:
+        default-requeue-rejected: false
+
+queue:
+  name:
+    audit: audit
+    add: add
+    edit: edit
+    delete: delete
+    dlq: dlq
+exch:
+  name:
+    dlq: dlq.exch
+    booking: booking.exch
+    message: message.exch
+routing:
+  audit: audit
+  add: add
+  edit: edit
+  delete: delete
+  dlq: dlq
+
+server:
+  port: 8010

@@ -1,0 +1,23 @@
+logging:
+  file:
+    path: logs/logfile.log
+  level:
+    root: ERROR
+    org:
+      springframework:
+       amqp: debug
+    com: debug
+spring:
+  application:
+    name: producer
+
+exch:
+  name:
+    message: message.exch
+routing:
+  add: add
+  edit: edit
+  delete: delete
+
+server:
+  port: 8020
